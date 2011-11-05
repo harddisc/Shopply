@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html {
+	height: 40px;
+}
+
+body {
+	background: #fffddd;
+	font: 16px Arial;
+	height: 100%;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-box-pack: center;
+}
+
+em {
+	font-weight: bold;
+	font-style: normal;
+}
+</style>
+</head>
+<body>
+	<table width="100%">
+		<tr>
+			<td id="#ngrams" align="left"></td>
+			<td align="right"><script>
+			function fbs_click() {
+				//url is following a & symbol
+				var url = window.location.hash.substring(1);
+				url = url.substring(url.indexOf('&')+1);
+				u=url;window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u),'sharer','toolbar=0,status=0,width=600,height=400');return false;
+				}</script>
+				<style>
+html .fb_share_button {
+	display: -moz-inline-block;
+	display: inline-block;
+	padding: 1px 20px 0 5px;
+	height: 15px;
+	border: 1px solid #d8dfea;
+	background:
+		url(http://static.ak.facebook.com/images/share/facebook_share_icon.gif?6:26981)
+		no-repeat top right;
+}
+
+html .fb_share_button:hover {
+	color: #fff;
+	border-color: #295582;
+	background: #3b5998
+		url(http://static.ak.facebook.com/images/share/facebook_share_icon.gif?6:26981)
+		no-repeat top right;
+	text-decoration: none;
+}
+</style> <a rel="nofollow" class="fb_share_button" onclick="return fbs_click()"
+				target="_blank" style="text-decoration: none;"></a>
+			</td>
+		</tr>
+	</table>
+	<script>
+		// obtain the ngrams from the page URL.
+		var ngrams = window.location.hash.substring(1);
+		// ngrams are followed by &, should be truncated to &
+		ngrams = ngrams.substring(0,ngrams.indexOf('&'));
+		document.getElementById("#ngrams").innerHTML = ngrams;
+	</script>
+</body>
+</html>
